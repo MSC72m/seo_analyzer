@@ -80,9 +80,9 @@ pip install -r requirements.txt
 ## Usage
 
 To start the API server:
+```bash
 uvicorn main:app --reload
-Copy
-
+```
 The API will be available at `http://localhost:8000`.
 
 ## API Endpoints
@@ -95,8 +95,9 @@ Analyzes a given URL for SEO metrics.
 - `url` (required): The URL to analyze
 
 **Example Request:**
+```curl
 GET /analyzer?url=https://example.com
-Copy
+```
 
 **Example Response:**
 ```json
