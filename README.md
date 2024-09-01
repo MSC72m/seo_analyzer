@@ -115,12 +115,14 @@ Copy
     ]
   }
 }
-Configuration
+
+## Configuration
 The application uses the following configuration variables:
     • OPENROUTER_API_KEY: Your OpenRouter API key for content quality evaluation 
     • YOUR_APP_NAME: The name of your application (used in API requests) 
 Set these variables in your environment or in a .env file.
-Dependencies
+
+## Dependencies
     • FastAPI: Web framework for building APIs 
     • Requests: HTTP library for making requests 
     • BeautifulSoup: HTML parsing library 
