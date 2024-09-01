@@ -6,45 +6,55 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
+- [GET /analyzer](#get-analyzer)
 - [Configuration](#configuration)
 - [Dependencies](#dependencies)
 - [Error Handling](#error-handling)
 
 ## Overview
 
-The SEO Analyzer API is a powerful tool designed to analyze web pages for Search Engine Optimization (SEO) purposes. It provides comprehensive insights into various aspects of a webpage, including content quality, keyword usage, meta tags, and potential SEO issues.
+The **SEO Analyzer API** is a robust tool designed to evaluate web pages for Search Engine Optimization (SEO) effectiveness. This API offers a detailed analysis of various webpage components, providing insights into content quality, keyword usage, meta tag optimization, and other SEO-related metrics. It is an essential tool for developers, digital marketers, and SEO specialists aiming to enhance their site's visibility on search engines.
 
 ## Features
 
 1. **Page Content Analysis**
-   - Fetches and parses HTML content from given URLs
-   - Extracts text content from various HTML elements
+   - Fetches and parses HTML content from specified URLs.
+   - Extracts text content from various HTML elements, including `<p>`, `<h1>`, `<h2>`, `<li>`, etc.
 
 2. **Word Count**
-   - Calculates the total word count of the extracted content
+   - Computes the total word count of the extracted content, excluding HTML tags and scripts.
 
 3. **Keyword Extraction**
-   - Identifies and ranks the top 20 keywords used in the content
+   - Identifies and ranks the top 20 keywords used in the webpage content.
+   - Uses natural language processing (NLP) to exclude common stop words and identify relevant keywords.
 
 4. **Meta Tag Analysis**
-   - Extracts and analyzes important meta tags (title, description, keywords)
+   - Extracts and analyzes important meta tags such as `<title>`, `<description>`, and `<keywords>`.
+   - Provides recommendations for optimizing meta tag content based on best SEO practices.
 
 5. **SEO Issue Detection**
-   - Checks for common SEO issues such as:
-     - Short content
-     - Missing or multiple H1 tags
-     - Images without alt text
-     - Non-HTTPS URLs
+   - Detects common SEO issues such as:
+     - Short or inadequate content length.
+     - Missing, multiple, or improperly nested `<h1>` tags.
+     - Images without `alt` attributes.
+     - Non-secure (non-HTTPS) URLs.
+     - Broken internal or external links.
+   - Suggests corrective actions for detected issues.
 
 6. **SEO Score Calculation**
-   - Computes an overall SEO score based on various factors
+   - Computes an overall SEO score based on factors like keyword density, meta tag quality, content length, and presence of common SEO issues.
 
 7. **Content Quality Evaluation**
-   - Utilizes AI (via OpenRouter API) to evaluate content quality
-   - Provides scores for readability, relevance, and engagement
+   - Integrates with AI services (via OpenRouter API) to evaluate content quality.
+   - Provides scores for readability, relevance, and engagement based on advanced machine learning algorithms.
 
 8. **Concurrent Processing**
-   - Implements multithreading for improved performance
+   - Supports multithreading for faster processing of multiple URLs simultaneously.
+   - Reduces latency and improves performance for bulk SEO analysis tasks.
+
+9. **Detailed Reporting**
+   - Generates a comprehensive JSON report summarizing all findings, scores, and actionable recommendations.
+
 
 ## Installation
 
@@ -115,22 +125,27 @@ Copy
     ]
   }
 }
-
+```
 ## Configuration
-The application uses the following configuration variables:
-    • OPENROUTER_API_KEY: Your OpenRouter API key for content quality evaluation 
-    • YOUR_APP_NAME: The name of your application (used in API requests) 
-Set these variables in your environment or in a .env file.
+The application uses the following configuration variables, which can be set in a .env file or directly in your environment:
+    • OPENROUTER_API_KEY: Your OpenRouter API key for content quality evaluation.
+    • YOUR_APP_NAME: The name of your application (used in API requests).
+Ensure these variables are set correctly before running the application.
 
 ## Dependencies
-    • FastAPI: Web framework for building APIs 
-    • Requests: HTTP library for making requests 
-    • BeautifulSoup: HTML parsing library 
-    • OpenRouter API: AI-powered content quality evaluation 
+The SEO Analyzer API relies on several third-party libraries and tools:
+    • FastAPI: A modern, fast (high-performance) web framework for building APIs with Python.
+    • Requests: A simple, yet powerful HTTP library for Python.
+    • BeautifulSoup: A Python library for parsing HTML and XML documents and extracting useful information.
+    • OpenRouter API: An external service used for advanced AI-powered content quality evaluation.
 For a complete list of dependencies, refer to the requirements.txt file.
-Error Handling
-The API implements robust error handling:
-    • Invalid URLs or unreachable websites return appropriate HTTP error codes 
-    • Timeouts and connection issues are handled gracefully 
-    • Detailed error messages are logged for debugging purposes 
+
+## Error Handling
+The API includes robust error handling mechanisms to ensure a smooth user experience:
+    • Invalid URLs: The API validates URLs and returns a 400 Bad Request error if an invalid URL is provided.
+    • Unreachable Websites: Returns a 404 Not Found or 500 Internal Server Error if the website is unreachable or encounters a server error.
+    • Timeouts: Gracefully handles request timeouts and provides a meaningful error message.
+    • Connection Issues: Detects and reports network-related issues.
+    • Detailed Logging: All errors are logged with detailed information for debugging purposes.
+
 
