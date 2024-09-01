@@ -59,14 +59,21 @@ The **SEO Analyzer API** is a robust tool designed to evaluate web pages for Sea
 ## Installation
 
 1. Clone the repository:
+```bash
 git clone https://github.com/yourusername/seo-analyzer-api.git
-Copy
-
-2. Install the required dependencies:
+cd seo-analyzer_api
+```
+2- Create a virtual environment (optional but recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+```
+3. Install the required dependencies:
+```bash
 pip install -r requirements.txt
-Copy
+```
 
-3. Set up your environment variables:
+5. Set up your environment variables:
 - `OPENROUTER_API_KEY`: Your OpenRouter API key
 - `YOUR_APP_NAME`: The name of your application
 
